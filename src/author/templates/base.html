@@ -7,20 +7,29 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet" s=""/>
 
     <title>Hello, world!</title>
   </head>
   <body>
  
   <!---Nav Bar start-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="{%url 'home' %}">User Authentication</a>
-  
-    <ul class="navbar-nav ml-auto">
+    
+    <div class="navbar-nav ml-auto">
+    <ul class="navbar-nav">
     {% if user.is_authenticated %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'update_profile' %}">Edit Profile <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'update_password' %}">Change Password <span class="sr-only">(current)</span></a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'logout' %}">Logout <span class="sr-only">(current)</span></a>
       </li>
+  
     {% else %}
       <li class="nav-item">
         <a class="nav-link" href="{% url 'login' %}">Login <span class="sr-only">(current)</span></a>
@@ -30,6 +39,8 @@
       </li>
     {% endif %}
     </ul>
+    </div>
+    </div>
 </nav>
 
   <!---Nav bar end-->
@@ -50,6 +61,20 @@
     {%block content%}
     {% endblock %}
 </div>
+        <!-- footer -->
+       
+            <nav class="navbar fixed-bottom">
+            <div class="mx-auto">
+            <p class="text-center">
+                <a  href="https://www.facebook.com/avvypardhan"><i class="fab fa-facebook-square"></i></a>&nbsp;
+                <a  href="https://www.instagram.com/avvypardhan"><i class="fab fa-instagram"></i></a>&nbsp;
+                <a  href="https://www.twitter.com/avvypardhan"><i class="fab fa-twitter-square"></i></a>&nbsp;
+                <a  href="https://www.linkedin.com/in/avvypardhan"><i class="fab fa-linkedin"></i></a>&nbsp;
+                <a  href="https://www.github.com/avvypardhan"><i class="fab fa-github-square"></i></a>&nbsp;
+            </p>
+            </div>
+            </nav>
+        <!-- footer ends -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
